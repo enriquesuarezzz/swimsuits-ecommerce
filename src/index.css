@@ -1,0 +1,194 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 174 67% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased font-light;
+    cursor: none;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display font-light tracking-wide;
+  }
+  
+  /* Editorial Typographic Styles */
+  .headline {
+    @apply font-display font-light text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight;
+  }
+  
+  .subheadline {
+    @apply font-sans font-extralight text-xl md:text-2xl tracking-wide uppercase;
+  }
+  
+  .pullquote {
+    @apply font-display italic text-3xl md:text-4xl leading-snug tracking-tight text-center my-12 max-w-2xl mx-auto;
+  }
+  
+  .caption {
+    @apply text-xs uppercase tracking-widest text-muted-foreground;
+  }
+  
+  .byline {
+    @apply text-sm uppercase tracking-widest;
+  }
+  
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+  }
+  
+  /* Parallax Scroll */
+  .parallax {
+    @apply relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Glass Morphism */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-turquoise/40 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-turquoise;
+  }
+  
+  /* Editorial Grid */
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+  
+  /* Magazine Column */
+  .magazine-column {
+    column-count: 1;
+    column-gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .magazine-column {
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .magazine-column-3 {
+      column-count: 3;
+    }
+  }
+  
+  /* Editorial Spacing */
+  .editorial-spacing {
+    @apply py-24 md:py-32;
+  }
+  
+  /* Editorial image */
+  .editorial-image {
+    @apply overflow-hidden;
+  }
+  
+  .editorial-image img {
+    @apply w-full h-full object-cover object-center transition-all duration-700;
+  }
+}
+
+@layer utilities {
+  .image-hover-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .image-hover-zoom img {
+    @apply transition-transform duration-700 ease-in-out;
+  }
+  
+  .image-hover-zoom:hover img {
+    @apply scale-110;
+  }
+  
+  /* Custom Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(10px); }
+  }
+  
+  @keyframes wave {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+}
